@@ -1,0 +1,3 @@
+# Ignore Bazel symlinks and output directories
+bazel-*
+/output/
