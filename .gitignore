@@ -1,3 +1,6 @@
 # Ignore Bazel symlinks and output directories
 bazel-*
 /output/
+
+# Don't save the personal file locations folder
+src/file_locations.json

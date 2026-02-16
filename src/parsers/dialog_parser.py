@@ -2,13 +2,15 @@ import argparse
 import json
 import os
 import pathlib
+import pprint
 import re
 
 from src.objects import talk_node
 
 '''Dialogue parser tester for G5. Used to determine the different parsable pieces in GF5. '''
 
-nodebeginre = re.compile('begintalknode (?P<nodeid>\d+);')
+_NODE_BEGIN_PATTERN = re.compile('begintalknode ?(?P<node_id>\d*);')
+
 textre = re.compile('text\d = \"(?P<text>.+)\";')
 conditionre = re.compile('condition = (?P<condition>.+);')
 actionre = re.compile('action = (?P<action>.+);')
@@ -21,8 +23,26 @@ GENEFORGE_FILE_DIR = os.path.join(os.path.expanduser('~'), '.wine/drive_c/Progra
 
 SCRIPTS_DIR = os.path.join(GENEFORGE_FILE_DIR, "Scripts")
 
-def parse_dialog(scripts_dir) -> list[talk_node.TalkNode]:
-	return []
+def parse_dialog(dialog_filepath) -> list[talk_node.TalkNode]:
+    print(f"Parsing dialog for {dialog_filepath}")
+    with open(dialog_filepath, "r") as f:
+        contents = f.read()
+    
+    # Split text contents on talk node begin declarations, and throw away contents before first node
+    node_contents_split = _NODE_BEGIN_PATTERN.split(contents)[1:]
+    print(node_contents_split[:4])
+    if len(node_contents_split) % 2 != 0:
+        raise ValueError(f"Invalid dialog parsing for {dialog_filepath}, got odd node ID/contents length")
+    
+    talk_nodes = []
+    for x in range(len(node_contents_split)//2):
+        next_node = parse_node(node_id=node_contents_split[x * 2], node_contents=node_contents_split[x * 2 + 1])
+    return talk_nodes
+
+def parse_node(node_id, node_contents):
+    print(node_id)
+    # print()
+    # print(node_contents)
 
 def main():
     with open("parsers/geneforge_filepaths.json", "r") as f:
@@ -39,65 +59,65 @@ def main():
             print(filename)
         return
 
-	# for root, dirs, files in os.walk(SCRIPTS_DIR):
-	# 	for filename in files:
-	# 		if filename.startswith('z') and filename[1].isdigit() and filename.endswith('dlg.txt'):
-	# 			parseFile(filename)
+    # for root, dirs, files in os.walk(SCRIPTS_DIR):
+    # 	for filename in files:
+    # 		if filename.startswith('z') and filename[1].isdigit() and filename.endswith('dlg.txt'):
+    # 			parseFile(filename)
 
-	# printLists()
-			
+    # printLists()
+            
 
 def parseFile(filename):
-	with open(os.path.join(SCRIPTS_DIR, filename), newline = '\r', errors = 'ignore') as f:
-		nodes = {}
+    with open(os.path.join(SCRIPTS_DIR, filename), newline = '\r', errors = 'ignore') as f:
+        nodes = {}
 
-		lines = f.readlines()
+        lines = f.readlines()
 
-		nodeId = -1
-		nodeobj = {}
+        nodeId = -1
+        nodeobj = {}
 
-		print(len(lines))
+        print(len(lines))
 
-		for line in lines:
-			#strip whitespace and remove comments
-			text = line.strip().split('\/\/')[0]
-			if len(text) == 0:
-				continue
+        for line in lines:
+            #strip whitespace and remove comments
+            text = line.strip().split('\/\/')[0]
+            if len(text) == 0:
+                continue
 
-			#new node
-			match = nodebeginre.search(text)
-			if match:
-				
-				if int(nodeId) > -1:
-					nodes[nodeId] = nodeobj
-				nodeId = match.group('nodeid')
-				nodeobj = {}
-				print('node id:' + nodeId + ", zone: " + filename)
+            #new node
+            match = nodebeginre.search(text)
+            if match:
+                
+                if int(nodeId) > -1:
+                    nodes[nodeId] = nodeobj
+                nodeId = match.group('nodeid')
+                nodeobj = {}
+                print('node id:' + nodeId + ", zone: " + filename)
 
-			match = actionre.search(text)
-			if match:
-				action = match.group('action').split(' ')[0]
-				if not action in actions:
-					actions.append(action)
+            match = actionre.search(text)
+            if match:
+                action = match.group('action').split(' ')[0]
+                if not action in actions:
+                    actions.append(action)
 
-			match = conditionre.search(text)
-			if match:
-				condition = match.group('condition').strip()
-				if not condition in conditions:
-					conditions.append(condition)
+            match = conditionre.search(text)
+            if match:
+                condition = match.group('condition').strip()
+                if not condition in conditions:
+                    conditions.append(condition)
 
 def printLists():
-	print('actions:')
-	for action in actions:
-		print(action)
+    print('actions:')
+    for action in actions:
+        print(action)
 
-	print()
+    print()
 
-	print('conditions')
-	for condition in conditions:
-		print(condition)
-	
-		
+    print('conditions')
+    for condition in conditions:
+        print(condition)
+    
+        
 
 if __name__ == '__main__':
-	main()
+    main()

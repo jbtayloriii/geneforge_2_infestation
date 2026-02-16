@@ -9,6 +9,8 @@ import sys
 from absl import app
 from absl import flags
 
+from src.parsers import dialog_parser
+
 _GENEFORGE_VERSION_FLAG = flags.DEFINE_enum(
     "geneforge_version", "2_remake", ["2_remake"], "The Geneforge version to parse"
 )
@@ -30,22 +32,11 @@ class GeneforgeFiles:
     other_script_filepaths: list[str]
 
 def main(argv):
-    print("test")
     gf_files = get_geneforge_files(_GENEFORGE_VERSION_FLAG.value)
 
-    print("Dialog files:")
-    for dialog_filepath in gf_files.zone_dialog_filepaths:
-        print(dialog_filepath)
-    print()
-
-    print("Zone files:")
-    for zone_filepath in gf_files.zone_filepaths:
-        print(zone_filepath)
-
-
-    print("Other files:")
-    for filepath in gf_files.other_script_filepaths:
-        print(filepath)
+    # Test parsing a single dialog filepath
+    for dialog_filepath in gf_files.zone_dialog_filepaths[:1]:
+        parsed_nodes = dialog_parser.parse_dialog(dialog_filepath)
 
 
 def get_geneforge_files(version) -> GeneforgeFiles:
