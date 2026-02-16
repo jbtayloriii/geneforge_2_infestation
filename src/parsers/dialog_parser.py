@@ -9,7 +9,12 @@ from src.objects import talk_node
 
 '''Dialogue parser tester for G5. Used to determine the different parsable pieces in GF5. '''
 
-_NODE_BEGIN_PATTERN = re.compile('begintalknode ?(?P<node_id>\d*);')
+_NODE_BEGIN_PATTERN = re.compile("begintalknode ?(?P<node_id>\d*);")
+
+_TAG_PATTERN = re.compile("tag = (?P<tag_id>\d+);")
+_STATE_PATTERN = re.compile("state = (?P<state_id>-?\d+);")
+_NEXTSTATE_PATTERN = re.compile("nextstate = (?P<nextstate_id>-?\d+);")
+_CONDITION_PATTERN = re.compile("condition = (?P<condition_text>[^;]+);")
 
 textre = re.compile('text\d = \"(?P<text>.+)\";')
 conditionre = re.compile('condition = (?P<condition>.+);')
@@ -30,19 +35,39 @@ def parse_dialog(dialog_filepath) -> list[talk_node.TalkNode]:
     
     # Split text contents on talk node begin declarations, and throw away contents before first node
     node_contents_split = _NODE_BEGIN_PATTERN.split(contents)[1:]
-    print(node_contents_split[:4])
     if len(node_contents_split) % 2 != 0:
         raise ValueError(f"Invalid dialog parsing for {dialog_filepath}, got odd node ID/contents length")
     
     talk_nodes = []
-    for x in range(len(node_contents_split)//2):
+
+    # TODO: parse entire file, not just first couple of nodes
+    for x in range(len(node_contents_split)//2)[:2]:
         next_node = parse_node(node_id=node_contents_split[x * 2], node_contents=node_contents_split[x * 2 + 1])
     return talk_nodes
 
 def parse_node(node_id, node_contents):
-    print(node_id)
-    # print()
-    # print(node_contents)
+    print(f"node_id: {node_id}")
+    # Remove whitespace padding and inline comments
+    updated_lines = [l.strip().split("\/\/")[0] for l in node_contents.splitlines()]
+
+    # Remove empty lines and join back together
+    updated_contents = "\n".join([l for l in updated_lines if l])
+
+    tag_match = _TAG_PATTERN.search(updated_contents)
+    tag = tag_match.group("tag_id") if tag_match else None
+
+    state_match = _STATE_PATTERN.search(updated_contents)
+    state = state_match.group("state_id") if state_match else None
+
+    nextstate_match = _NEXTSTATE_PATTERN.search(updated_contents)
+    nextstate = nextstate_match.group("nextstate_id") if nextstate_match else None
+
+    condition_match = _CONDITION_PATTERN.search(updated_contents)
+    condition_text = condition_match.group("condition_text") if condition_match else None
+    print(f"condition text: {condition_text}")
+
+    print()
+    
 
 def main():
     with open("parsers/geneforge_filepaths.json", "r") as f:
