@@ -1,0 +1,119 @@
+Geneforge list of stuff to do
+
+=======
+Per map
+=======
+
+-Be able to scroll around a zone and see relevant objects in a zone
+ -See containers on the map and the items inside
+  -Group all the items in a single place together
+ -See quests (given, rewards, or steps) on a zone
+ -Filter items, quests, etc.
+  -Have a way to pull 'tagged' things for showing/hiding
+ -See the mechanics checks for items on the map
+-See conversations possible in a zone
+ -Get the conversation data for a zone
+  -Parse the dlg.txt files
+  -Persist conversation nodes in the data model
+ -See the flow for a conversation
+  -Link the conversation nodes together
+  -
+ -See the requirements for triggering a specific conversation step
+
+-See a list of items in the game and where they are obtained
+ -Create a list of items with their data
+  -Create an item template view
+  -Populate a grid with items
+ -See how items are obtained
+  -Parse relevant item data
+   -Monster drops
+   -Zone locations
+   -Scripts that give items
+   -Conversations that give items
+   -Shops
+  -Create a view when an item is clicked that shows where it is obtained
+
+See quests in the game
+ -Parse quest data (name, description) from .exe file
+ -Parse quest giving, finishing in scripts
+  -Figure out how to determine conditions for these (how are conversation nodes triggered, etc.)
+
+See shops, trainers in the game
+ -Parse shop, trainer data (where is it?)
+ -Parse shop openers
+
+-conversations
+-events
+-mines, triggers with mech
+-switches with mech
+-doors (with mech or related levers/conversation/etc)
+-fix items to have their x, y offset stored and used in map generation
+-shops
+
+Flags
+-from conversation options
+-from monsters
+-Convert flags to readable text depending on how/where they are set (next to quests, by monster deaths, etc)
+
+=========
+Item View
+=========
+
+-Item template information
+-Item locations:
+ -quest rewards
+ -Conversation stuff (similar to rewards I guess)
+ -monster drops
+ -events
+ -on ground/in containers
+
+===========
+Item Images
+===========
+
+-graphic tempalte refers to file (51 -> G1510.bmp)
+-which icon refers to ordering (top left is 0 then goes right, then down a row I think?)
+ -graphic sheet might refer to the row in the actual file (2 is third from top for example)
+
+-TODO: figure out graphic color adjust (animal skin and fine skin for ex)
+
+=============
+Conversations
+=============
+
+A big TODO here
+
+====
+CSVs
+====
+
+-Pull quests, special items from Geneforge 5.exe
+-Add functionality to actually generate ability_text csv
+ -generate this from gf5objsmisc.txt file ('^ab_')
+-Find out how to fully parse item_variety, stat_text instead of hardcoding lists
+
+============
+Useful stuff
+============
+
+Get all the flag getters in the scripts folder
+grep -o 'gf([0-9]\+\,[0-9]\+)\|get_flag([0-9]\+\,[0-9]\+)' *
+
+Get all the places where you need to have specific standing (rebel or shaper)
+grep 'gf(100,0)' * > ~/dev/python/geneforge/geneforge5data/influence.txt
+
+=====
+Other
+=====
+-Make a full todo list
+
+-quests, special items from Geneforge 5.exe
+ -L187556: forge effects
+ -L187597: item stat effects
+ -L216389: creature definitions
+ -218789: stat names (missing creation armor #8 and ends at luck #22) (every 16 lines)
+ -219429: start of firebolt (40) through create ornk (95)
+ -222469: start of special item names through 223317
+ -224069: start of special item descriptions through 224917
+ -L231909: start of quest names through 233477
+ -L233509: start of quest descriptions (32 lines) through 236645

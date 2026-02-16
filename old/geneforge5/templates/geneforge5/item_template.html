@@ -1,0 +1,19 @@
+<div class="item_template">
+	<h1>{{ name }}</h1>
+	<h3>Weight: {{ item_weight }}</h3>
+	<h3>Value: {{ item_value }}</h3>
+
+	<div class="item_abilities">
+		<h2>Abilities:</h2>
+		<ul>
+		{% for ability in abilities %}
+			<li>{{ ability }}
+		{% endfor %}
+		</ul>
+	</div>
+</div>
+<div id="item_location">
+	{% with zone_item.items as items %}
+		{% include "geneforge5/item_location.html" %}
+	{% endwith %}
+</div>

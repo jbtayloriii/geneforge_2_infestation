@@ -1,0 +1,9 @@
+module(name = "geneforge_parser")
+
+bazel_dep(name = "rules_python", version = "1.7.0")
+bazel_dep(name = "abseil-py", version = "2.1.0", repo_name = "abseil")
+
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+python.toolchain(
+    python_version = "3.9",
+)

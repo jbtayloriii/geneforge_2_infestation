@@ -1,0 +1,15 @@
+{% extends 'geneforge5/base.html' %}
+{% block content %}
+<ul>
+{{ items }}
+{% for key, value in item_list.items %}
+	<li> {{ key.name }}
+	<ul>
+	{% for item in value %}
+		<li><a href="{% url 'item_template' item.item_id %}">{{ item.get_display_text }}</a>
+	{% endfor %}
+	</ul>
+
+{% endfor %}
+</ul>
+{% endblock %}

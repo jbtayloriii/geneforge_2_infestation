@@ -1,0 +1,8 @@
+{% extends 'geneforge5/base.html' %}
+{% block content %}
+<ul>
+{% for zone in zones %}
+	<li><a href="{% url 'zone' zone.zone_id %}">{{ zone }}</a>
+{% endfor %}
+</ul>
+{% endblock %}

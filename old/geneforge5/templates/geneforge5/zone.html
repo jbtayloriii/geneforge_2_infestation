@@ -1,0 +1,36 @@
+{% extends 'geneforge5/base.html' %}
+{% load static %}
+{% block content %}
+	
+	<body>
+		{% with 'geneforge5/images/'|add:zone_id|add:'.png' as image_src %}
+		<canvas id="zone_map" style="background: url({% static image_src %})">
+		</canvas>
+		<div id="zone_list">
+			<div id="items" class="list_tab">
+				<ul>
+				{% for item in items %}
+					<li>{{ item }}
+				{% endfor %}
+				</ul>
+			</div>
+			<div id="creatures" class="list_tab">
+				<ul>
+				{% for creature in creatures %}
+					<li>{{ creature }}: {{ creature.x_pos }}, {{ creature.y_pos }}
+					{% with creature.get_items as creature_items %}
+						{% if creature_items %}
+							<ul>
+							{% for item in creature_items %}
+								<li> {{ item }}
+							{% endfor %}
+							</ul>
+						{% endif %}
+					{% endwith %}
+				{% endfor %}
+				</ul>
+			</div>
+		</div
+		{% endwith %}
+	</body>
+{% endblock %}

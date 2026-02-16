@@ -1,0 +1,65 @@
+#zone_map {
+	width: 1280px;
+	height: 1280px;
+	float: left;
+}
+
+#zone_list {
+	float: left;
+}
+
+body {
+	margin: 0;
+	background: #bbdefb;
+	font-size: 14px;
+	font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial, sans-serif;
+}
+
+#header {
+	height: 40px;
+	background: #64b5f6;
+	padding: 10px;
+	line-height: 40px;
+}
+
+.header_button h1 {
+	font-size: 24px;
+	margin: 0;
+}
+
+a:link a:visited {
+	text-decoration: none;
+}
+
+.header_button {
+	float: left;
+	min-width: 240px;
+	max-width: 560px;
+  text-align: center;
+	line-height: 40px;
+}
+
+.box {
+	background-color: white;
+	position: relative;
+	width: 19px;
+	height: 19px;
+	text-align: center;
+	outline: 1px solid red;
+}
+
+.box:hover {
+	outline: 2px solid blue;
+}
+
+.box:hover .hover-info {
+	display:block;
+	background-color: white;
+}
+
+.hover-info {
+	display:none;
+	position: absolute;
+}
+
+

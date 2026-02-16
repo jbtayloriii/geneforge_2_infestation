@@ -1,0 +1,83 @@
+zone_id,name,script
+0,Pacification Fields,z0pacific
+1,Minallah,z1Tminah
+2,Isenwood's Spire,z2Tisenwood
+3,Foundry Promenade,z3promen
+4,Testing Halls,z4testhall
+5,Foundry Core West,z5westfoun
+6,Foundry Core East,z6coreeast
+7,Foundry Core,z7core
+8,Foundry Repository,z8reposit
+9,Whitespires Pass,z9whitpass
+10,North Mera Road,z10nmerard
+11,Mera,z11Tmera
+12,Haria-Kel,z12Tharia
+13,Northeast Fen,z13neswamp
+14,Mera Fields,z14merafiel
+15,Helft Ruins,z15helft
+16,Infested Crossroad,z16infestrd
+17,Kaz,z17kaz
+18,Murkwood,z18murkwood
+19,Northwest Fen,z19nwswamp
+20,Below Nodye Pass,z20belownod
+21,Nodye Pass,z21nodpass
+22,Penta,z22penta
+23,South Mera Road,z23smerard
+24,North Citadel Pass,z24ncitpass
+25,Gorash-Kel,z25gorash
+26,West Shadow Road,z26wshadrd
+27,East Shadow Road,z27eshadrd
+28,Middle Shadow Road,z28mdshadrd
+29,Secret Laboratory,z29seclab
+30,Western Okavano,z30westoka
+31,Southwest Okavano,z31swokavan
+32,Okavano Sea Caves,z32oakseacv
+33,Okavano Barrier,z33okabarr
+34,Trakovite Haven,z34Ttrakov
+35,Kratoa-Kel,z35kratoa
+36,Kratoa Stoneworks,z36stonewor
+37,Lerman's Pass,z37lermanp
+38,North Storm Plains,z38nplains
+39,Hatra Ruins,z39hatraru
+40,Perikalia Farmland,z40perfarm
+41,Perikalia,z41Tperikal
+42,Stormhold,z42Tstormh
+43,Podling Crossroads,z43infcross
+44,Western Passes,z44westpass
+45,Fort Defiance,z45ftdefi
+46,Abandoned Farms,z46abanfarm
+47,Mountain Crossroad,z47mntncd
+48,Fort Vengeance,z48ftvenge
+49,Thistlewood,z49thistle
+50,Remote Woods,z50remotewo
+51,Fort Rockfall,z51rockfall
+52,Control Core B,z52coreb
+53,Western Wasteland,z53westwast
+54,Northwest Wasteland,z54nwwaste
+55,Travald's Crypt,z55trcrypt
+56,Southwest Wasteland,z56swwaste
+57,Secret Access Route,z57secrout
+58,Outside Gazaki-Uss,z58outgaza
+59,Bonepeak Ruins,z59bonepeak
+60,Gazaki-Uss,z60Tgazak
+61,Inner Gazaki-Uss,z61innergaz
+62,Perikalia Orchards,z62orchard
+63,Dera Bridge,z63dbridge
+64,Zephyr Oasis,z64Toasis
+65,Camp West Alpha,z65westalph
+66,Oasis Fields,z66fields
+67,Lethia Pass,z67lethpass
+68,White Wastes,z68wwastes
+69,Bennhold's Keep,z69benkeep
+70,Dera South Shore,z70derashor
+71,Lost Dera Vault,z71lostvaul
+72,Camp East Alpha,z72campeast
+73,Purity Workshop,z73purishop
+74,Pacification Road,z74pacroad
+75,Spire Entryway,z75spirentr
+76,Kayar's Spire Cells,z76spircell
+77,Kayar's Spire,z77kayspire
+78,Citadel East Ward,z78citeast
+79,Citadel Dome,z79citdome
+80,Disposal Vault,z80dvault
+81,Sammann's Isle,z81samisle

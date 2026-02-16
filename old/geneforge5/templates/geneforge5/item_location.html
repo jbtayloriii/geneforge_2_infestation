@@ -1,0 +1,21 @@
+<h2>Item locations</h2>
+
+<h3>In zones</h3>
+<ul>
+{% for zone_item in items %}
+	<li><a href="{% url 'zone' zone_item.zone.zone_id %}">{{ zone_item.zone }}</a>
+{% endfor %}
+</ul>
+
+<h3>From creatures</h3>
+<ul>
+{% for zone_creature in zone_item.zone_creatures %}
+	<li><a href="{% url 'zone' zone_creature.zone.zone_id %}?sel_type=creature&sel_id={{zone_creature.zone_creature_id}}"> {{ zone_creature }}</a>
+{% endfor %}
+</ul>
+
+<h3>From conversations</h3>
+
+<h3>From shops</h3>
+
+<h3>Other</h3>

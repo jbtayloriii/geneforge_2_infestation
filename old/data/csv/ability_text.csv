@@ -1,0 +1,107 @@
+id,identifier
+0,melee attack
+1,bite
+2,shortsword
+3,firebolt
+4,searer
+5,essence orbs
+7,diamond spray
+10,stun
+13,terror (monster)
+14,terror (PCCat)
+15,dominate
+16,fyora fire
+17,ice breath
+18,ice spray
+19,ice spray (Shaila)
+20,javelin
+21,flung rock
+22,stunning rock
+23,drayk/drakon fire
+24,ur-drakon fire
+25,disruption
+30,purifying rain
+31,shocking rain
+32,icy rain
+33,poison rain
+34,lightning rain
+35,dampening field
+36,erosive field
+37,temporal field
+38,terror field
+39,acid shower
+50,thorn
+52, venom thorn
+54,acid thorn
+56,submission thorn
+58,reapers
+60,decaying ray
+62,charm ray
+64,slowing mist
+65,confusing mist
+80,poison sting
+81,poison bite
+82,icy touch
+83,rotting touch
+84,stunning blow
+85,radiate energy
+86,confusing touch
+87,terror touch
+90,broadsword
+91,stunblade
+92,venomblade
+93,oozing Blade
+94,draining blade
+100,war blessing
+101,elemental aura
+110,speed
+120,unlock
+130,Mass restore
+140,mass energize
+160,burning spray
+161,venomous spray
+162,acid shower
+164,aura of flames
+165,stunning aura
+166,kill
+168,daze
+170,strong daze
+172,mass madness
+174,mindshield aura
+176,chaotic essence
+178, essence shield
+180,essence armor
+182,essence blade
+183,thorny aura
+184,essence infusion
+185,regeneration
+186,battle roar
+187,berserker
+190,light
+191,charm
+192,wrack
+192,essence shackles
+195,lightning aura
+196,essence lance
+197,unbound death breath
+198,unbound fear breath
+200,heal
+201,heal self
+202,heal group
+206,minor heal
+207,major heal
+210,cure affliction
+211,cure self
+212,cure group
+213,banish affliction
+214,aura of cleansing
+215,haste other
+216,haste self
+217,haste group
+220,restore essence
+225,protection
+226,shield self
+227,shield group
+230,bless other
+231,bless self
+232,bless group

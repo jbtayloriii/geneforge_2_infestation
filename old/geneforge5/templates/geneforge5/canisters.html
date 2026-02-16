@@ -1,0 +1,18 @@
+{% extends 'geneforge5/base.html' %}
+{% block content %}
+<h1>Canisters</h1>
+<table>
+<tr>
+	<td>Zone</td>
+	<td>Skill</td>
+	<td>Amount</td>
+{% for canister in canisters %}
+	<tr>
+		<td>{{ canister.zone }}</td>
+		<td>{{ canister.skill }}</td>
+		<td>{{ canister.amount }}</td>
+	</tr>
+{% endfor %}
+</table>
+{% endblock %}
+

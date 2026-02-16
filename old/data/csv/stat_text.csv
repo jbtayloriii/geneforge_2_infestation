@@ -1,0 +1,105 @@
+id,name
+0,Strength
+1,Dexterity
+2,Intelligence
+3,Endurance
+4,Melee Weapons
+5,Missile Weapons
+6,Quick Action
+7,Parry
+8,Creation Armor
+9,Battle Magic
+10,Mental Magic
+11,Blessing Magic
+12,Spellcraft
+15,Fire Shaping
+16,Battle Shaping
+17,Magic Shaping
+18,Healing Craft
+20,Leadership
+21,Mechanics
+22,Luck
+40,Firebolt
+41,Burning Spray
+42,Searer
+43,Ice Spray
+44,Lightning Aura
+45,Shocking Rain
+46,Acid Shower
+47,Kill
+48,Essence Lances
+49,Purifying Rain
+50,Daze
+51,Mindshield Aura
+52,Wrack
+53,Unlock
+54,Terror
+55,Dominate
+56,Essence Shackles
+57,Strong Daze
+58,Charm
+59,Mass Madness
+60,War Blessing
+61,Protection
+62,Essence Shield
+63,Speed
+64,Thorny Aura
+65,Battle Aura
+66,Essence Blade
+67,Essence Armor
+68,Elemental Aura
+69,Battle Roar
+70,Minor Heal
+71,Cure Affliction
+72,Essence Infusion
+73,Heal
+74,Regeneration Aura
+75,Group Heal
+76,Banish Affliction
+77,Major Heal
+78,Cleanse Group
+79,Mass Restore
+80,Create Fyora
+81,Create Roamer
+82,Create Drayk
+83,Create Kyshakk
+84,Create Drakon
+85,Create Thahd
+86,Create Clawbug
+87,Create Battle Alpha
+88,Create Rotghroth
+89,Create War Trall
+90,Create Artila
+91,Create Vlish
+92,Create Glaahk
+93,Create Wingbolt
+94,Create Gazer
+95,Create Ornk
+100,Spore Baton
+200,Melee Damage Protection
+201,Action Points
+202,chance to hit
+203,combat damage levels
+204,hostile effect resistance
+205,energy resistance
+206,fire resistance
+207,poison resistance
+208,acid resistance
+210,mind effect resistance
+211,stun resistance
+212,cold resistance
+213,damage shield
+214,energy preservation
+215,stealth
+216,"damage vs undead, constucts"
+217,vampiric touch
+220,blessing
+221,fire essence
+222,cold essence
+223,acid infusion
+224,curse power
+225,magic essence
+226,speed
+227,spines
+228,stability
+229,strong blessing
