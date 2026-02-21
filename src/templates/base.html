@@ -1,0 +1,54 @@
+<!-- {{ url_for('static', filename='style.css') }} -->
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Geneforge 5 info{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {% block scripts %}
+    {% endblock %}
+</head>
+
+<body>
+    <div id="header">
+        <div id="header_home" class="header_button">
+            <h1><a href="{{ url_for('landing_page') }}">Home</a></h1>
+        </div>
+        <div id="header_canisters" class="header_button">
+            <h1><a href="{{ url_for('zones') }}">Zones</a></h1>
+        </div>
+        <div id="header_item" class="header_button">
+            <h1><a href="{{ url_for('items') }}">Items</a></h1>
+        </div>
+        <div id="header_canisters" class="header_button">
+            <h1><a href="{{ url_for('canisters') }}">Canisters</a></h1>
+        </div>
+        <div id="header_quests" class="header_button">
+            <h1><a href="{{ url_for('quests') }}">Quests</a></h1>
+        </div>
+        <div id="header_skills" class="header_button">
+            <h1><a href="{{ url_for('skills') }}">Skills</a></h1>
+        </div>
+        <div id="header_reputation" class="header_button">
+            <h1><a href="{{ url_for('reputation') }}">Reputation</a></h1>
+        </div>
+        <div id="header_spec_items" class="header_button">
+            <h1><a href="{{ url_for('special_items') }}">Special Items</a></h1>
+        </div>
+        <div id="header_shops" class="header_button">
+            <h1><a href="{{ url_for('shops') }}">Shops</a></h1>
+        </div>
+        <div id="header_crafting" class="header_button">
+            <h1><a href="{{ url_for('crafting') }}">Crafting</a></h1>
+        </div>
+    </div>
+    <div id="content">
+        {% block content%}
+        {% endblock %}
+    </div>
+</body>
+
+</html>
