@@ -89,11 +89,6 @@ def bin_to_string(dataslice):
 			break
 	return binStr
 
-def get_global_data(data):
-	global_dict = {}
-	global_dict['name'] = bin_to_string(data[0:19])
-	global_dict['script'] = bin_to_string(data[20:31])
-	return global_dict
 
 def getfloordata(data, zonedict):
 	floor = []

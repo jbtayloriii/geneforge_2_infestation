@@ -66,6 +66,8 @@ def parse_node(node_id, node_contents):
     condition_text = condition_match.group("condition_text") if condition_match else None
     print(f"condition text: {condition_text}")
 
+    # TODO: Continue parsing the node
+
     print()
     
 

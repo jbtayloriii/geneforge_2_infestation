@@ -10,5 +10,6 @@ py_binary(
         "@abseil//absl:app",
         "@abseil//absl/flags",
         "//src/parsers:dialog_parser",
+        "//src/parsers:scen_data_parser",
     ]
 )

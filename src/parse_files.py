@@ -10,9 +10,10 @@ from absl import app
 from absl import flags
 
 from src.parsers import dialog_parser
+from src.parsers import scen_data_parser
 
 _GENEFORGE_VERSION_FLAG = flags.DEFINE_enum(
-    "geneforge_version", "2_remake", ["2_remake"], "The Geneforge version to parse"
+    "geneforge_version", "5", ["5", "2_remake"], "The Geneforge version to parse"
 )
 
 _ZONE_DIALOG_MATCHER = re.compile(r"^z\d+[A-Za-z0-9]+dlg\.txt$")
@@ -35,17 +36,22 @@ def main(argv):
     gf_files = get_geneforge_files(_GENEFORGE_VERSION_FLAG.value)
 
     # Test parsing a single dialog filepath
-    for dialog_filepath in gf_files.zone_dialog_filepaths[:1]:
-        parsed_nodes = dialog_parser.parse_dialog(dialog_filepath)
+    # for dialog_filepath in gf_files.zone_dialog_filepaths[:1]:
+    #     parsed_nodes = dialog_parser.parse_dialog(dialog_filepath)
 
+
+    # Test parsing the scenario data file
+    parsed_zones = scen_data_parser.parse_scen_data(gf_files.scenario_data_filepath, len(gf_files.zone_dialog_filepaths))
 
 def get_geneforge_files(version) -> GeneforgeFiles:
     # TODO: make this a real function
     with open("src/file_locations.json", "r") as f:
         file_obj = json.loads(f.read())
     base_folder_prefix = file_obj[version]["base_path"]
+    scne_data_filename = file_obj[version]["scen_data_filename"]
+    scripts_folder = file_obj[version]["scripts_folder"]
 
-    scripts_folder = os.path.join(base_folder_prefix, "Resources", "Scripts")
+    scripts_folder = os.path.join(base_folder_prefix, scripts_folder)
     other_filepaths = []
     zone_filepaths = []
     zone_dialog_filepaths = []
@@ -62,7 +68,7 @@ def get_geneforge_files(version) -> GeneforgeFiles:
 
     return GeneforgeFiles(
         base_folder=base_folder_prefix,
-        scenario_data_filepath=os.path.join(base_folder_prefix, "Resources", "GF2ScenData.dat"),
+        scenario_data_filepath=os.path.join(base_folder_prefix, scne_data_filename),
         executable_filepath=os.path.join(base_folder_prefix, "MacOS", "Geneforge 2 - Infestation"),
         zone_filepaths=zone_filepaths,
         zone_dialog_filepaths=zone_dialog_filepaths,

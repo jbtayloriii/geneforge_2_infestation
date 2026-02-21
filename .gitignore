@@ -4,3 +4,8 @@ bazel-*
 
 # Don't save the personal file locations folder
 src/file_locations.json
+
+# Input files include geneforge data for parsing
+input_data/*
+
+__pycache__
