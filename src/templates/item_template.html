@@ -1,0 +1,28 @@
+<div class="item_template">
+	<h1>{{ template.name }}</h1>
+	<h3>Weight: {{ template.weight }}</h3>
+	<h3>Value: {{ template.value }}</h3>
+	<h3>Protection: {{ template.protection }}</h3>
+	<h3>extra description: {{ template.extra_description }}</h3>
+
+
+
+	<div class="item_abilities">
+		<h2>Abilities:</h2>
+		<ul>
+			{% for ability in abilities %}
+			<li>{{ ability }}
+				{% endfor %}
+		</ul>
+	</div>
+	<div class="item_stats">
+		<h2>Stats:</h2>
+		<ul>
+			{% for stat in template.item_stats %}
+			<li>{{ stat }}
+				{% endfor %}
+		</ul>
+	</div>
+</div>
+<div id="item_location">
+</div>

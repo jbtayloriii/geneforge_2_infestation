@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+	{% for variety_id, template_list in item_templates_by_variety_id.items() %}
+	<li> {{ item_variety_by_id[variety_id] }}
+		<ul>
+			{% for template in template_list %}
+			<li><a href="{{ url_for('item_template', item_id=template.item_id) }}">{{ template.get_display_text() }}</a>
+				{% endfor %}
+		</ul>
+
+		{% endfor %}
+</ul>
+{% endblock %}
