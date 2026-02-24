@@ -20,3 +20,11 @@ py_library(
     deps = [
     ]
 )
+
+py_library(
+    name = "template_parser",
+    srcs = ["template_parser.py"],
+    deps = [
+        "//src:gf_constants"
+    ]
+)
