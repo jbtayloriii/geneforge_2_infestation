@@ -4,22 +4,14 @@
 	<h3>Value: {{ template.value }}</h3>
 	<h3>Protection: {{ template.protection }}</h3>
 	<h3>extra description: {{ template.extra_description }}</h3>
-
-
-
-	<div class="item_abilities">
-		<h2>Abilities:</h2>
-		<ul>
-			{% for ability in abilities %}
-			<li>{{ ability }}
-				{% endfor %}
-		</ul>
-	</div>
+	{% if template.ability %}
+	<h3>Ability: {{ template.ability.get_description() }}</h3>
+	{% endif %}
 	<div class="item_stats">
 		<h2>Stats:</h2>
 		<ul>
 			{% for stat in template.item_stats %}
-			<li>{{ stat }}
+			<li>{{ stat.get_description() }}
 				{% endfor %}
 		</ul>
 	</div>

@@ -74,7 +74,7 @@ class DataLoader:
         with open("src/data/csv/ability_text.csv", "r") as f:
             reader = csv.DictReader(f)
             for row in reader:
-                ability_text_by_id[row["id"]] = row["identifier"]
+                ability_text_by_id[int(row["id"])] = row["identifier"]
         return ability_text_by_id
 
     def _load_item_varieties(self) -> dict[int, objects.ItemVariety]:
@@ -106,9 +106,19 @@ class DataLoader:
         with open("src/data/csv/item_template.csv", "r") as f:
             reader = csv.DictReader(f)
             for row in reader:
-                ability_text_id = row["it_ability"]
-                ability_text = ability_text_map[ability_text_id] if ability_text_id in ability_text_map else ""
-
+                ability_id_text = row["it_ability"]
+                ability_id = int(ability_id_text) if ability_id_text else None
+                if ability_id in ability_text_map:
+                    ability_text = ability_text_map[ability_id]
+                    ability_level = int(row["it_level"]) if row["it_level"] else None
+                    item_ability = objects.ItemAbility(
+                        ability_id=ability_id,
+                        ability_text=ability_text,
+                        ability_level=ability_level
+                    )
+                else:
+                    item_ability = None
+                
                 variety_id = int(row["it_variety"]) if row["it_variety"] else -1
                 variety = item_variety_map[variety_id] if variety_id in item_variety_map else None
 
@@ -118,8 +128,7 @@ class DataLoader:
                 template = objects.ItemTemplate(
                     item_id=item_id,
                     name=row["it_name"],
-                    ability_text=ability_text,
-                    level=row["it_level"],
+                    ability=item_ability,
                     variety=variety,
                     value=row["it_value"],
                     weight=row["it_weight"],
